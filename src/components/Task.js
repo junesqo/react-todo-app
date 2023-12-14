@@ -1,5 +1,23 @@
 import React, { useState } from 'react';
 
+const taskNames = [
+  'Buy groceries',
+  'Finish homework',
+  'Go for a run',
+  'Read a book',
+  'Write a blog post',
+  'Clean the house',
+  'Learn React',
+  'Plan the weekend',
+  'Call a friend',
+  'Watch a movie',
+];
+
+const getRandomTaskName = () => {
+  const randomIndex = Math.floor(Math.random() * taskNames.length);
+  return taskNames[randomIndex];
+};
+
 const Task = ({ task, completeTask }) => {
   const [file, setFile] = useState(null);
   const [imageURL, setImageURL] = useState(null);
@@ -25,7 +43,7 @@ const Task = ({ task, completeTask }) => {
 
   return (
     <li>
-      {task.text}
+      {getRandomTaskName()}
       <input type="file" onChange={handleFileChange} />
       {imageURL && <img src={imageURL} alt="Uploaded" style={{ maxWidth: '100px' }} />}
       <button onClick={() => handleCompleteTask(task.id)}>Complete</button>
