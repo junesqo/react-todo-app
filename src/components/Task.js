@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Task.css';
 
 const taskNames = [
   'Buy groceries',
@@ -43,11 +44,14 @@ const Task = ({ task, completeTask }) => {
 
   return (
     <li>
-      {getRandomTaskName()}
-      <input type="file" onChange={handleFileChange} />
-      {imageURL && <img src={imageURL} alt="Uploaded" style={{ maxWidth: '100px' }} />}
+      <div>
+        {getRandomTaskName()}
+        <input type="file" onChange={handleFileChange} />
+      </div>
+      {imageURL && <img src={imageURL} alt="Uploaded" />}
       <button onClick={() => handleCompleteTask(task.id)}>Complete</button>
     </li>
+
   );
 };
 
