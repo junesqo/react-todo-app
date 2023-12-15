@@ -44,8 +44,11 @@ const Task = ({ task, completeTask }) => {
 
   return (
     <li>
-      <div>
-        {getRandomTaskName()}
+      <div className="task-info">
+        <div>
+          <h3>{getRandomTaskName()}</h3>
+          <p>Due: {new Date().toLocaleDateString()}</p>
+        </div>
         <input type="file" onChange={handleFileChange} />
       </div>
       {imageURL && <img src={imageURL} alt="Uploaded" />}
